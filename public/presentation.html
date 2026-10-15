@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SchemeSaathi — Product Presentation Pitch Deck</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Outfit', 'Plus Jakarta Sans', -apple-system, sans-serif;
+      user-select: none;
+    }
+
+    .slide {
+      display: none;
+      aspect-ratio: 16 / 9;
+    }
+    
+    .slide.active {
+      display: flex;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media print {
+      body {
+        background: white !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .slide {
+        display: flex !important;
+        page-break-after: always;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        margin-bottom: 20px;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-900 min-h-screen p-4 sm:p-6 lg:p-8 flex flex-col items-center justify-center">
+
+  <!-- Presentation Control Bar (Google Slides Inspired) -->
+  <header class="no-print w-full max-w-5xl bg-white rounded-2xl shadow-sm border border-slate-200 px-5 py-3 mb-4 flex flex-wrap items-center justify-between gap-3">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-green-600 flex items-center justify-center text-white font-bold text-sm shadow-sm">
+        SS
+      </div>
+      <div>
+        <h1 class="text-sm font-bold text-slate-800">SchemeSaathi — Product & Innovation Pitch Deck</h1>
+        <p class="text-[11px] text-slate-500">Yuva Shakti Think Tank • Google Style Presentation</p>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex items-center gap-2">
+      <span id="slideCounter" class="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200 mr-1">
+        Slide 1 of 10
+      </span>
+      <button onclick="prevSlide()" class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">
+        ← Prev
+      </button>
+      <button onclick="nextSlide()" class="p-2 rounded-xl bg-green-600 hover:bg-green-700 text-white text-xs font-bold transition px-3">
+        Next →
+      </button>
+      <button onclick="window.print()" class="p-2 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-semibold transition ml-2">
+        🖨️ Print / Save PDF
+      </button>
+    </div>
+  </header>
+
+  <!-- Slide Stage Container -->
+  <main class="w-full max-w-5xl">
+    
+    <!-- SLIDE 1: TITLE SLIDE -->
+    <div class="slide active bg-[#FBF9F5] border border-slate-300 rounded-3xl p-8 sm:p-12 shadow-xl flex-col justify-between overflow-hidden relative">
+      <div class="absolute -right-16 -top-16 w-80 h-80 bg-green-100/60 rounded-full blur-3xl -z-10"></div>
+      <div class="absolute -left-16 -bottom-16 w-80 h-80 bg-yellow-100/60 rounded-full blur-3xl -z-10"></div>
+
+      <!-- Top Header -->
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-xl bg-green-600 flex items-center justify-center text-white font-bold text-lg">
+            🧭
+          </div>
+          <span class="text-xl font-extrabold tracking-tight text-slate-900">
+            Scheme<span class="text-green-600">Saathi</span>
+          </span>
+        </div>
+        <span class="text-xs font-bold uppercase tracking-wider bg-yellow-100 text-yellow-800 border border-yellow-200 px-3 py-1 rounded-full">
+          Yuva Shakti Think Tank Initiative
+        </span>
+      </div>
+
+      <!-- Center Hero -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center my-auto">
+        <div class="md:col-span-7 space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+            Student Innovation Project
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-[1.15]">
+            Find the right benefit.<br />
+            <span class="text-green-600 underline decoration-yellow-400 decoration-wavy decoration-4">Finish the application.</span>
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            A privacy-first welfare discovery platform helping students, first-time applicants, and families navigate government scholarships, enterprise subsidies, and document readiness without middlemen.
+          </p>
+        </div>
+
+        <div class="md:col-span-5">
+          <img src="/hero_slide.jpg" alt="SchemeSaathi Students" class="rounded-2xl border border-slate-200 shadow-md w-full object-cover aspect-[4/3]" />
+        </div>
+      </div>
+
+      <!-- Slide Footer -->
+      <div class="pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500 font-medium">
+        <span>Active Field Pilots: Maharashtra (Pune) & Uttar Pradesh (Prayagraj)</span>
+        <span>Free Guidance • Official Sources • Zero Tracking</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: THE PROBLEM -->
+    <div class="slide bg-white border border-slate-300 rounded-3xl p-8 sm:p-12 shadow-xl flex-col justify-between overflow-hidden">
+      <div class="space-y-1">
+        <span class="text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded-full border border-red-200">
+          The Problem Statement
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-950 pt-2">
+          The Last-Mile Welfare Paradox in India
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600">
+          Thousands of crores in scholarships and youth welfare subsidies lapse every year. The root cause is not lack of intent—it is severe informational friction.
+        </p>
+      </div>
+
+      <!-- 3 Key Problem Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-auto">
+        <div class="p-6 rounded-2xl bg-red-50/50 border border-red-100 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 font-bold flex items-center justify-center text-lg mb-3">
+              01
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-2">Fragmented Portals</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Every department runs isolated websites with dead links, complex 40-page gazette PDFs, and outdated rules that confuse first-time applicants.
+            </p>
+          </div>
+          <span class="text-[11px] font-bold text-red-700 mt-4">80% drop-off at discovery</span>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-amber-50/50 border border-amber-100 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-lg mb-3">
+              02
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-2">Predatory Middlemen</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Cyber-cafe operators charge ₹300–₹1,000 from low-income students just to fill basic free government forms, often using incorrect applicant emails.
+            </p>
+          </div>
+          <span class="text-[11px] font-bold text-amber-800 mt-4">High financial burden</span>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-slate-200 text-slate-800 font-bold flex items-center justify-center text-lg mb-3">
+              03
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-2">Document Ambiguity</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Students do not know the difference between mandatory certificates (Domicile, NPCI Bank Seeding) and conditional items, leading to form rejections.
+            </p>
+          </div>
+          <span class="text-[11px] font-bold text-slate-700 mt-4">Preventable rejections</span>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+        <span>Survey Data: Yuva Shakti Grassroots Welfare Study</span>
+        <span>Slide 2 of 10</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: OUR SOLUTION -->
+    <div class="slide bg-white border border-slate-300 rounded-3xl p-8 sm:p-12 shadow-xl flex-col justify-between overflow-hidden">
+      <div class="space-y-1">
+        <span class="text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+          The Solution
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-950 pt-2">
+          How SchemeSaathi Bridges the Gap
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600">
+          A modern digital companion that guides applicants from eligibility discovery to final stamped receipt.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 my-auto">
+        <div class="p-5 rounded-2xl bg-[#FBF9F5] border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-green-100 text-green-700 flex items-center justify-center text-base">🔍</div>
+          <h3 class="font-bold text-sm text-slate-900">Zero-Tracking Matching</h3>
+          <p class="text-xs text-slate-600">4 simple questions in 90 seconds. No Aadhaar, passwords, or bank logins.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-[#FBF9F5] border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-yellow-100 text-yellow-700 flex items-center justify-center text-base">📋</div>
+          <h3 class="font-bold text-sm text-slate-900">Personalized Checklist</h3>
+          <p class="text-xs text-slate-600">Interactive readiness bar. Printable one-click PDF for offline preparation.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-[#FBF9F5] border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center text-base">📖</div>
+          <h3 class="font-bold text-sm text-slate-900">Jargon Buster</h3>
+          <p class="text-xs text-slate-600">Translates complex terms (DBT, NPCI, Bonafide, Domicile) into plain language.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-[#FBF9F5] border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center text-base">🤝</div>
+          <h3 class="font-bold text-sm text-slate-900">Campus Volunteer Desks</h3>
+          <p class="text-xs text-slate-600">Free student peer guidance at university centers for first-time applicants.</p>
+        </div>
+      </div>
+
+      <div class="p-3.5 bg-green-50 rounded-2xl border border-green-200 text-xs text-green-900 flex items-center justify-between">
+        <span class="font-bold">Core Trust Guarantee:</span>
+        <span>Informational Guidance Only • Government Authorities Hold Sole Approval Rights</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: DESIGN DIRECTION -->
+    <div class="slide bg-white border border-slate-300 rounded-3xl p-8 sm:p-12 shadow-xl flex-col justify-between overflow-hidden">
+      <div class="space-y-1">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-700 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+          Design System & User Experience
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-950 pt-2">
+          Apple Clarity Meets Blinkit Vitality
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600">
+          Clean, reassuring, and dignified—crafted specifically to not feel like an intimidating bureaucratic portal.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-auto">
+        <div class="p-5 rounded-2xl bg-[#FBF9F5] border border-slate-300 space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-[#FBF9F5] border border-slate-300 inline-block"></span>
+            <span class="w-6 h-6 rounded-full bg-green-600 inline-block"></span>
+            <span class="w-6 h-6 rounded-full bg-yellow-400 inline-block"></span>
+          </div>
+          <h3 class="text-sm font-bold text-slate-900 pt-1">Warm Palette</h3>
+          <p class="text-xs text-slate-600">Soft cream background (<code class="text-[11px]">#FBF9F5</code>), deep ink text (<code class="text-[11px]">#111827</code>), vivid leaf-green (<code class="text-[11px]">#16A34A</code>), and citrus yellow highlights.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-slate-300 shadow-sm space-y-2">
+          <div class="text-lg font-bold text-slate-800">Aa</div>
+          <h3 class="text-sm font-bold text-slate-900">Crisp Typography</h3>
+          <p class="text-xs text-slate-600">Plus Jakarta Sans font hierarchy with large, scannable headings, generous whitespace, and rounded cards (<code class="text-[11px]">rounded-2xl/3xl</code>).</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-slate-300 shadow-sm space-y-2">
+          <div class="text-base font-bold text-green-700">♿ WCAG 2.1 AA</div>
+          <h3 class="text-sm font-bold text-slate-900">Accessibility First</h3>
+          <p class="text-xs text-slate-600">Large 44px+ touch targets, visible keyboard focus rings, screen-reader friendly semantics, and mobile-first responsive layout.</p>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+        <span>Responsive: Mobile (375px) • Tablet (768px) • Desktop (1280px)</span>
+        <span>Slide 4 of 10</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: UNIVERSAL LOCATION ENGINE -->
+    <div class="slide bg-white border border-slate-300 rounded-3xl p-8 sm:p-12 shadow-xl flex-col justify-between overflow-hidden">
+      <div class="space-y-1">
+        <span class="text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+          Location Adaptability
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-950 pt-2">
+          Universal Location Engine (Any State & District)
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600">
+          Moving beyond single-city demos to support all 28 Indian States, 8 Union Territories, and 700+ districts.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+        <div class="space-y-3 text-xs text-slate-700">
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <strong class="text-slate-900 block mb-1">📍 Multi-State Coverage:</strong>
+            Users can select from all 36 States/UTs or type any custom district (e.g. Pune, Prayagraj, Lucknow, Bhopal, Patna, Coimbatore).
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <strong class="text-slate-900 block mb-1">🎯 Strict State-Level Isolation:</strong>
+            Maharashtra state schemes (like MahaDBT) never spill into Uttar Pradesh or Bihar. Users only see their state's schemes + All-India Central programs.
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <strong class="text-slate-900 block mb-1">⚡ Auto-Discovery Background Engine:</strong>
+            Queries official government circulars and gazettes dynamically for newly selected regions via our live portal integration.
+          </div>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-green-50 border border-green-200 flex flex-col justify-between">
+          <div>
+            <span class="text-[11px] font-bold text-green-800 uppercase tracking-wider">Active Ground Pilots</span>
+            <div class="mt-3 space-y-2">
+              <div class="p-2.5 bg-white rounded-xl border border-green-200 text-xs flex justify-between items-center">
+                <span class="font-bold text-slate-900">Pune, Maharashtra</span>
+                <span class="text-[10px] bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded-full">Active Desk</span>
+              </div>
+              <div class="p-2.5 bg-white rounded-xl border border-green-200 text-xs flex justify-between items-center">
+                <span class="font-bold text-slate-900">Prayagraj, Uttar Pradesh</span>
+                <span class="text-[10px] bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded-full">Active Desk</span>
+              </div>
+              <div class="p-2.5 bg-white rounded-xl border border-green-200 text-xs flex justify-between items-center">
+                <span class="font-bold text-slate-900">Bhopal & New Delhi</span>
+                <span class="text-[10px] bg-slate-100 text-slate-700 font-bold px-2 py-0.5 rounded-full">Expansion</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-[11px] text-green-800 mt-3 italic">Central All-India schemes (PMKVY, Stand-Up India, SISFS) active in all regions.</p>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+        <span>Zero Location Tracking • No GPS or IP Stored</span>
+        <span>Slide 5 of 10</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: ELIGIBILITY FINDER -->
+    <div class="slide bg-white border border-slate-300 rounded-3xl p-8 sm:p-12 shadow-xl flex-col justify-between overflow-hidden">
+      <div class="space-y-1">
+        <span class="text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+          Core Feature
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-950 pt-2">
+          The 4-Step Eligibility Finder Wizard
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600">
+          A respectful, step-by-step questionnaire designed with strict privacy-by-design principles.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-auto">
+        <div class="p-4 rounded-2xl bg-[#FBF9F5] border border-slate-300 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-green-700">Step 1</span>
+            <h3 class="font-bold text-sm text-slate-900 mt-1">Location Context</h3>
+            <p class="text-xs text-slate-600 mt-1">Select state and type any district name or city.</p>
+          </div>
+          <span class="text-[10px] text-slate-400 mt-2">Zero GPS tracking</span>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-[#FBF9F5] border border-slate-300 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-green-700">Step 2</span>
+            <h3 class="font-bold text-sm text-slate-900 mt-1">Role & Profile</h3>
+            <p class="text-xs text-slate-600 mt-1">Student, job seeker, self-employed founder, or homemaker.</p>
+          </div>
+          <span class="text-[10px] text-slate-400 mt-2">Age bracket matching</span>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-[#FBF9F5] border border-slate-300 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-green-700">Step 3</span>
+            <h3 class="font-bold text-sm text-slate-900 mt-1">Economic Context</h3>
+            <p class="text-xs text-slate-600 mt-1">Income bracket for fee concessions with "Read Why" explanation.</p>
+          </div>
+          <span class="text-[10px] text-amber-700 font-bold mt-2">Optional (Skip anytime)</span>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-[#FBF9F5] border border-slate-300 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-green-700">Step 4</span>
+            <h3 class="font-bold text-sm text-slate-900 mt-1">Focus Areas</h3>
+            <p class="text-xs text-slate-600 mt-1">Higher education, vocational skills, startup loans, or sustainability.</p>
+          </div>
+          <span class="text-[10px] text-green-700 font-bold mt-2">Local-only opt-in save</span>
+        </div>
+      </div>
+
+      <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-700 flex items-center justify-between">
+        <strong>Privacy Guarantee:</strong>
+        <span>No Aadhaar Numbers • No Bank Passwords • Zero Server Transmission</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: MATCH RESULTS & TRANSPARENCY -->
+    <div class="slide bg-white border border-slate-300 rounded-3xl p-8 sm:p-12 shadow-xl flex-col justify-between overflow-hidden">
+      <div class="space-y-1">
+        <span class="text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+          Trust & Matching
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-950 pt-2">
+          Transparent Match Results Architecture
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600">
+          Showing "Possible matches" rather than false guarantees. Every card explains why it appeared.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-auto">
+        <div class="p-5 rounded-2xl bg-green-50/70 border border-green-200 space-y-2">
+          <span class="text-xs font-bold bg-green-200 text-green-900 px-2 py-0.5 rounded-full">Potential Match</span>
+          <h3 class="text-sm font-bold text-slate-900 pt-1">High Relevance Score</h3>
+          <p class="text-xs text-slate-600">Directly satisfies district jurisdiction, age criteria, and selected occupational profile.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-yellow-50/70 border border-yellow-200 space-y-2">
+          <span class="text-xs font-bold bg-yellow-200 text-yellow-900 px-2 py-0.5 rounded-full">Check One Requirement</span>
+          <h3 class="text-sm font-bold text-slate-900 pt-1">Condition Verification</h3>
+          <p class="text-xs text-slate-600">Displayed when user skipped income question or when stream quota needs college office check.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-100 border border-slate-200 space-y-2">
+          <span class="text-xs font-bold bg-slate-200 text-slate-800 px-2 py-0.5 rounded-full">More Info Needed</span>
+          <h3 class="text-sm font-bold text-slate-900 pt-1">Conditional Guidance</h3>
+          <p class="text-xs text-slate-600">General schemes where user may qualify based on additional family or academic records.</p>
+        </div>
+      </div>
+
+      <div class="p-3.5 bg-[#FBF9F5] rounded-2xl border border-slate-200 text-xs text-slate-700 flex flex-wrap items-center justify-between gap-2">
+        <span><strong>Transparent Sorting:</strong> Location match & category interest overlap</span>
+        <span class="text-green-700 font-bold">Zero Sponsored Ads • Zero Commercial Priority</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: DOCUMENT CHECKLIST & PRINTABLE DOSSIER -->
+    <div class="slide bg-white border border-slate-300 rounded-3xl p-8 sm:p-12 shadow-xl flex-col justify-between overflow-hidden">
+      <div class="space-y-1">
+        <span class="text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+          Core Feature
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-950 pt-2">
+          Personalized Document Checklist & PDF Export
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600">
+          A dynamic checklist that turns confusing prerequisites into an actionable preparation tracker.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center my-auto">
+        <div class="md:col-span-6 space-y-3 text-xs text-slate-700">
+          <div class="flex items-start gap-2">
+            <span class="text-green-600 font-bold">✓</span>
+            <div>
+              <strong class="text-slate-900">Mandatory vs Conditional Distinction:</strong>
+              Official government requirements (Domicile, NPCI Bank Passbook) are clearly distinguished from conditional items.
+            </div>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-600 font-bold">✓</span>
+            <div>
+              <strong class="text-slate-900">Real-Time Readiness Meter:</strong>
+              Interactive progress bar tracks application completion percentage as user checks off items.
+            </div>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-600 font-bold">✓</span>
+            <div>
+              <strong class="text-slate-900">Print / Save as PDF:</strong>
+              Custom <code class="text-[11px]">@media print</code> CSS strips web navigation and formats the checklist for paper submission.
+            </div>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-600 font-bold">✓</span>
+            <div>
+              <strong class="text-slate-900">Opt-In Privacy Controls:</strong>
+              Progress saved only with explicit consent, with an instant "Delete saved progress" wipe button.
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-6">
+          <img src="/checklist_slide.jpg" alt="Document Checklist" class="rounded-2xl border border-slate-200 shadow-md w-full object-cover aspect-[4/3]" />
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+        <span>Available for every verified government scheme</span>
+        <span>Slide 8 of 10</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: CAMPUS PEER VOLUNTEERS & IMPACT -->
+    <div class="slide bg-white border border-slate-300 rounded-3xl p-8 sm:p-12 shadow-xl flex-col justify-between overflow-hidden">
+      <div class="space-y-1">
+        <span class="text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+          Field Operations & Impact
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-950 pt-2">
+          Campus Volunteers & Measurable Pilot Impact
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600">
+          Combining student digital tools with compassionate in-person campus support.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center my-auto">
+        <div class="md:col-span-6">
+          <img src="/impact_slide.jpg" alt="Campus Helpdesk" class="rounded-2xl border border-slate-200 shadow-md w-full object-cover aspect-[4/3]" />
+        </div>
+
+        <div class="md:col-span-6 space-y-3.5">
+          <div class="p-3.5 bg-green-50 rounded-2xl border border-green-200 text-xs text-green-900">
+            <strong class="block mb-1">Campus Volunteer Helpdesk:</strong>
+            Trained student peers from Yuva Shakti Think Tank provide free form-navigation support. They do not charge fees or guarantee government approvals.
+          </div>
+
+          <div class="p-3.5 bg-[#FBF9F5] rounded-2xl border border-slate-200 text-xs text-slate-700 space-y-1">
+            <strong class="text-slate-900 block mb-1">Dual-Mode Impact Dashboard:</strong>
+            <p>• <strong>Live Pilot Status:</strong> Strictly avoids fabricated numbers; displays genuine study cohort baseline.</p>
+            <p>• <strong>Illustrative Benchmarks:</strong> Simulates field trial goals (reducing search time from 45 min to 4.2 min).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+        <span>Volunteer scope: Educational guidance only</span>
+        <span>Slide 9 of 10</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: CONCLUSION & DEMO -->
+    <div class="slide bg-[#FBF9F5] border border-slate-300 rounded-3xl p-8 sm:p-12 shadow-xl flex-col justify-between overflow-hidden relative">
+      <div class="space-y-1">
+        <span class="text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+          Conclusion & Live Demo
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-950 pt-2">
+          SchemeSaathi: Ready for Real-World Impact
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600">
+          A fully working, responsive web application for the Yuva Shakti Think Tank student innovation initiative.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-auto">
+        <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <div class="text-green-600 font-bold text-sm">✅ Production Ready</div>
+          <h3 class="font-bold text-slate-900">Full Feature Set</h3>
+          <p class="text-xs text-slate-600">Quiz, location engine, transparent matching, document checklist, application blueprint, and admin schema editor.</p>
+        </div>
+
+        <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <div class="text-green-600 font-bold text-sm">🌐 Universal Scope</div>
+          <h3 class="font-bold text-slate-900">All India Coverage</h3>
+          <p class="text-xs text-slate-600">Tailored schemes for Maharashtra, Uttar Pradesh, and Central programs, plus dynamic background discovery.</p>
+        </div>
+
+        <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <div class="text-green-600 font-bold text-sm">📦 Open Source</div>
+          <h3 class="font-bold text-slate-900">GitHub Repository</h3>
+          <p class="text-xs text-slate-600">Committed and pushed to <code>github.com/shivanshd51/SchemeSaathi</code> with full API protection.</p>
+        </div>
+      </div>
+
+      <div class="p-4 bg-green-600 text-white rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+        <div>
+          <span class="font-bold text-sm">Experience SchemeSaathi Live:</span>
+          <p class="text-green-100 text-[11px]">Local Server: http://localhost:5173/ • GitHub: https://github.com/shivanshd51/SchemeSaathi</p>
+        </div>
+        <span class="font-extrabold text-xs uppercase tracking-wider bg-white text-green-900 px-3 py-1.5 rounded-xl shadow-sm whitespace-nowrap">
+          Yuva Shakti Think Tank
+        </span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Slide Navigator Dots (Google Style) -->
+  <footer class="no-print mt-6 flex items-center gap-1.5">
+    <div id="dotContainer" class="flex items-center gap-2"></div>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const counter = document.getElementById('slideCounter');
+    const dotContainer = document.getElementById('dotContainer');
+
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.className = `w-2.5 h-2.5 rounded-full transition-all ${i === 0 ? 'bg-green-600 w-6' : 'bg-slate-300'}`;
+      dot.onclick = () => goToSlide(i);
+      dotContainer.appendChild(dot);
+    }
+
+    function updatePresentation() {
+      slides.forEach((s, idx) => {
+        s.classList.toggle('active', idx === currentSlide);
+      });
+      counter.textContent = `Slide ${currentSlide + 1} of ${totalSlides}`;
+      
+      const dots = dotContainer.querySelectorAll('button');
+      dots.forEach((d, idx) => {
+        if (idx === currentSlide) {
+          d.className = 'w-6 h-2.5 rounded-full bg-green-600 transition-all';
+        } else {
+          d.className = 'w-2.5 h-2.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all';
+        }
+      });
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updatePresentation();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updatePresentation();
+      }
+    }
+
+    function goToSlide(index) {
+      if (index >= 0 && index < totalSlides) {
+        currentSlide = index;
+        updatePresentation();
+      }
+    }
+
+    // Keyboard navigation (Google Slides shortcuts)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        prevSlide();
+      } else if (e.key === 'Home') {
+        goToSlide(0);
+      } else if (e.key === 'End') {
+        goToSlide(totalSlides - 1);
+      }
+    });
+  </script>
+</body>
+</html>
