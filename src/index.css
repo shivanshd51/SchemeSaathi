@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Focus visible accessibility styling */
+  *:focus-visible {
+    outline: 2px solid #16a34a;
+    outline-offset: 2px;
+  }
+}
+
+/* Print styling for Document Checklist */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  
+  header, nav, footer, .no-print, button:not(.print-include) {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  .checklist-print-container {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+}
